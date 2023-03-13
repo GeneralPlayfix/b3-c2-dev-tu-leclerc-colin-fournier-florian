@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,12 +11,52 @@
     <button onclick="calculate(this)">test</button>
     <script>
         function calculate(calcul){
-            fetch("http://localhost:3000/calculate")
-                .then(response => response.json())
-                .then(response => console.log(response))
-                .catch(error => alert("Erreur : " + error));         
+               
         }
       
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>Calculatrice</title>
+    <script src="js/script.js"></script>
+</head>
+<body>
+        <div id="calculatrice">
+            <div id="affichage">
+                <input type="text" id="res" placeholder="0" autocomplete="off" disabled>
+            </div>
+            <div id="clavier">
+                <div class="touches" id="ac">AC</div>
+                <div class="touches operateurs">(</div>
+                <div class="touches operateurs">)</div>
+                <div class="touches operateurs">/</div>
+                <div class="touches">7</div>
+                <div class="touches">8</div>    
+                <div class="touches">9</div>
+                <div class="touches operateurs">*</div>
+                <div class="touches" >4</div>
+                <div class="touches" >5</div>
+                <div class="touches" >6</div>
+                <div class="touches operateurs">-</div>
+                <div class="touches" >1</div>
+                <div class="touches" >2</div>
+                <div class="touches" >3</div>
+                <div class="touches operateurs">+</div>
+                <div class="touches" id="zero" >0</div>
+                
+                <div class="touches operateurs">=</div>
+                
+            </div>
+    </div>
+    <script>
     </script>
 </body>
 </html>
