@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "express": "^4.18.2",
+    "mocha": "^10.2.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "b3-c2-dev-tu-leclerc-colin-fournier-florian",
+  "description": "Calculatrice pour le cours de test unitaire de Mr. Rida",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeneralPlayfix/b3-c2-dev-tu-leclerc-colin-fournier-florian.git"
+  },
+  "author": "Leclerc Colin Fournier Florian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GeneralPlayfix/b3-c2-dev-tu-leclerc-colin-fournier-florian/issues"
+  },
+  "homepage": "https://github.com/GeneralPlayfix/b3-c2-dev-tu-leclerc-colin-fournier-florian#readme"
+}
