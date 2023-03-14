@@ -1,12 +1,13 @@
 const express = require('express');
-const evaluate = require('./eval');
 const app = express();
+const evaluate = require('./utils');
 
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
+console.log(evaluate.customEval("2+2"));
 app.get('/calculate', function (req, res) {
 
     res.send({"result":12});
