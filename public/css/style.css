@@ -32,7 +32,7 @@ body{
 #clavier {
     display: grid;
     grid-gap:1rem;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
           
 }
 .touches{
@@ -53,4 +53,10 @@ body{
 }
 #zero{
     grid-column: 1/4;
+}
+#error{
+    color: rgb(193, 52, 52);
+    font-size: 1.8rem;
+    display:block;
+    height: 2rem;
 }

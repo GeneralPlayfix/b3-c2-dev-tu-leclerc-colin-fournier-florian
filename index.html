@@ -1,22 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Coucou</h1>
-    <button onclick="calculate(this)">test</button>
-    <script>
-        function calculate(calcul){
-               
-        }
-      
-    </script>
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -30,11 +11,13 @@
 </head>
 <body>
         <div id="calculatrice">
+            <p id="error"></p>
             <div id="affichage">
                 <input type="text" id="res" placeholder="0" autocomplete="off" disabled>
             </div>
             <div id="clavier">
                 <div class="touches" id="ac">AC</div>
+                <div class="touches" id="supp">SUPP</div>
                 <div class="touches operateurs">(</div>
                 <div class="touches operateurs">)</div>
                 <div class="touches operateurs">/</div>
@@ -42,18 +25,20 @@
                 <div class="touches">8</div>    
                 <div class="touches">9</div>
                 <div class="touches operateurs">*</div>
+                <div class="touches operateurs">√</div>
                 <div class="touches" >4</div>
                 <div class="touches" >5</div>
                 <div class="touches" >6</div>
-                <div class="touches operateurs">-</div>
+                <div class="touches operateurs">%</div>
+                <div class="touches operateurs">^</div>
                 <div class="touches" >1</div>
                 <div class="touches" >2</div>
                 <div class="touches" >3</div>
                 <div class="touches operateurs">+</div>
+                <div class="touches operateurs">-</div>
                 <div class="touches" id="zero" >0</div>
-                
+                <div class="touches operateurs">.</div>
                 <div class="touches operateurs">=</div>
-                
             </div>
     </div>
     <script>
