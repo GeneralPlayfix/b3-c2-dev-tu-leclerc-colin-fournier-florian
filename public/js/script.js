@@ -3,21 +3,25 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const keys = document.querySelectorAll(".touches");
     keys.forEach(key => key.addEventListener('click', event => {
         const printedResult = document.getElementById("res");
-        if (isResult) {
-            isResult = false;
-            printedResult.value = "" 
-        }
+        // if (isResult) {
+        //     isResult = false;
+        //     printedResult.value = "" 
+        // } 
         const error = document.getElementById("error")
         const currentCharacter = event.currentTarget.innerHTML;
         if(currentCharacter == "AC") return printedResult.value = ""
         if(currentCharacter == "SUPP") return printedResult.value = printedResult.value.slice(0, -1); 
+
         let value = printedResult.value;
+      
         //if invalid character return
         if(checkIfValidCharacter(value, currentCharacter) == false) {
             error.innerHTML = "Erreur de syntaxe, impossible de mettre ce caractère ou de lancer ce calcul"
             return
         }
-        value += currentCharacter;
+        if(currentCharacter !== "=") {
+            value += currentCharacter;
+        }
         error.innerHTML = ""
         if(currentCharacter === "="){
             const valueToSendToBack = translateToBack(printedResult.value);
@@ -71,24 +75,25 @@ function checkIfValidCharacter(value, character){
 
 function translateToBack(expressionToTransform){
     if (expressionToTransform.matchAll(/√/gm)) {
-
         const matches = expressionToTransform.match(/√/g);
-        for (let i = 0; i < matches.length; i++) {
-            const matchIndex = expressionToTransform.indexOf(matches[i]);
-            let openBracketsCounter = 0;
-            let closeBracketsCounter = 0
-            let lastBracketIndexOfTheSQRT;
-            for(let iterator = matchIndex; iterator < expressionToTransform.length; iterator++){
-                if(expressionToTransform[iterator] == '(') openBracketsCounter++;
-                if(expressionToTransform[iterator] == ')') closeBracketsCounter++;
-                if(expressionToTransform[iterator] == ')' && openBracketsCounter == closeBracketsCounter){
-                    lastBracketIndexOfTheSQRT = iterator;
-                    break;
+        if(matches !== null){
+            for (let i = 0; i < matches.length; i++) {
+                const matchIndex = expressionToTransform.indexOf(matches[i]);
+                let openBracketsCounter = 0;
+                let closeBracketsCounter = 0
+                let lastBracketIndexOfTheSQRT;
+                for(let iterator = matchIndex; iterator < expressionToTransform.length; iterator++){
+                    if(expressionToTransform[iterator] == '(') openBracketsCounter++;
+                    if(expressionToTransform[iterator] == ')') closeBracketsCounter++;
+                    if(expressionToTransform[iterator] == ')' && openBracketsCounter == closeBracketsCounter){
+                        lastBracketIndexOfTheSQRT = iterator;
+                        break;
+                    }
                 }
+                expressionToTransform = expressionToTransform.toString().split('')
+                expressionToTransform.splice(lastBracketIndexOfTheSQRT, 0,')')
+                expressionToTransform = expressionToTransform.join('').replace(/√/, '(sqrt')
             }
-            expressionToTransform = expressionToTransform.toString().split('')
-            expressionToTransform.splice(lastBracketIndexOfTheSQRT, 0,')')
-            expressionToTransform = expressionToTransform.join('').replace(/√/, '(sqrt')
         }
         return expressionToTransform
     }
