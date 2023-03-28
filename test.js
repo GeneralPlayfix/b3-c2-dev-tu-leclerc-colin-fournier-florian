@@ -30,4 +30,21 @@ describe('evaluate.customEval', function() {
     assert.throws(() => evaluate.customEval('(2+3'), /Mismatched parentheses/);
     assert.throws(() => evaluate.customEval('2+3^2'), /Unknown operator/);
   });
+
+
+    it('should handle square root', function() {
+    assert.strictEqual(evaluate.customEval('√(4)'), 2);
+    assert.strictEqual(evaluate.customEval('√(16/4)'), 2);
+    assert.throws(() => evaluate.customEval('√-4'), /Invalid syntax/);
+    assert.throws(() => evaluate.customEval('√(4/0)'), /Division by zero/);
+    });
+    
+    it('should handle power', function() {
+    assert.strictEqual(evaluate.customEval('2^3'), 8);
+    assert.strictEqual(evaluate.customEval('(2+3)^2'), 25);
+    assert.strictEqual(evaluate.customEval('3^(1+1)'), 9);
+    assert.throws(() => evaluate.customEval('2^-3'), /Invalid syntax/);
+    assert.throws(() => evaluate.customEval('(2/0)^2'), /Division by zero/);
+    });
+  
 });
