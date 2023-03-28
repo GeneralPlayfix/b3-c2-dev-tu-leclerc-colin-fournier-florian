@@ -7,7 +7,7 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
-//console.log(evaluate.customEval(")(+2"));
+console.log(evaluate.customEval("2^-4"));
 app.get('/calculate', function (req, res) {
     if (req.query.calcul === undefined && req.query.calcul === "") return res.send({"result":"error"})
     const result = evaluate.customEval(req.query.calcul)

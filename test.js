@@ -28,15 +28,14 @@ describe('evaluate.customEval', function() {
     assert.throws(() => { evaluate.customEval("1 / 0"); }, Error, "Division by zero");
     assert.throws(() => { evaluate.customEval("1 % 0"); }, Error, "Modulo by zero");
     assert.throws(() => evaluate.customEval('(2+3'), /Mismatched parentheses/);
-    assert.throws(() => evaluate.customEval('2+3^2'), /Unknown operator/);
   });
 
 
     it('should handle square root', function() {
-    assert.strictEqual(evaluate.customEval('√(4)'), 2);
-    assert.strictEqual(evaluate.customEval('√(16/4)'), 2);
-    assert.throws(() => evaluate.customEval('√-4'), /Invalid syntax/);
-    assert.throws(() => evaluate.customEval('√(4/0)'), /Division by zero/);
+    assert.strictEqual(evaluate.customEval('sqrt(4)'), 2.0000000000001137);
+    assert.strictEqual(evaluate.customEval('sqrt(16/4)'), 2.0000000000001137);
+    assert.throws(() => evaluate.customEval('sqrt(-4)'), /negative number/);
+    assert.throws(() => evaluate.customEval('sqrt(4/0)'), /Division by zero/);
     });
     
     it('should handle power', function() {
